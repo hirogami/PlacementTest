@@ -1,2 +1,2 @@
 # PlacementTest
-Formscanner, Excel, R
+# R scripts and data for bubble sheets
