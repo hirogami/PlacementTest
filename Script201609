@@ -1,0 +1,44 @@
+#データを読みdata0と名づける
+library(data.table)
+data0 <- fread('https://raw.githubusercontent.com/hirogami/PlacementTest/master/201609')
+
+#全員の平均
+library(dplyr)
+library(magrittr)
+data0%>%summarise(meanALL=mean(marks))
+#学年ごとの平均
+data0 %>%
+      filter(year==1) %>%
+      summarise(mean1=mean(marks))
+data0 %>%
+      filter(year==2) %>%
+      summarise(mean2=mean(marks))
+data0 %>%
+      filter(year==3) %>%
+      summarise(mean3=mean(marks))
+
+#学年ごとの人数
+data0 %>% count(year)
+
+#国籍別平均
+data0 %>%
+      filter(nationality==62) %>%
+      summarise(mean62=mean(marks))
+data0 %>%
+      filter(nationality==84) %>%
+      summarise(mean84=mean(marks))
+data0 %>%
+      filter(nationality==86) %>%
+      summarise(mean86=mean(marks))
+data0 %>%
+      filter(nationality==94) %>%
+      summarise(mean=mean(marks))
+data0 %>%
+      filter(nationality==880) %>%
+      summarise(mean=mean(marks))
+data0 %>%
+      filter(nationality==977) %>%
+      summarise(mean977=mean(marks))
+
+#国ごとの人数
+data0 %>% count(nationality)
